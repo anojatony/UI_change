@@ -1,0 +1,100 @@
+
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item href="#">Dashboard</a>
+        <a mat-list-item href="#">Projects</a>
+        <a mat-list-item href="#" *ngIf="val=='data'">Datasets</a>
+        <a mat-list-item href="#" *ngIf="val=='data'">Library</a>
+        <a mat-list-item routerLink="/property" *ngIf="val=='pp'">Property Prediction</a>
+        <a mat-list-item href="#" *ngIf="val=='pp'">Property Model Validation</a>
+        <mat-expansion-panel [class.mat-elevation-z0]="true" dense *ngIf="val=='molecule_generation'">
+          <mat-expansion-panel-header>
+            Structure Based Generation
+          </mat-expansion-panel-header>
+          <mat-nav-list dense >
+            <a mat-list-item style="font-size: medium;">Binding Site</a>
+            <a mat-list-item style="font-size: medium;">Surrogate Function</a>
+            <a mat-list-item style="font-size: medium;">Structure Based Generator</a> 
+          </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel [class.mat-elevation-z0]="true" dense *ngIf="val=='molecule_generation'">
+        <mat-expansion-panel-header>
+          Ligand Based Generation
+        </mat-expansion-panel-header>
+        <mat-expansion-panel [class.mat-elevation-z0]="true" dense >
+          <mat-expansion-panel-header>
+            Hit Expansion
+          </mat-expansion-panel-header>
+          <mat-nav-list dense>
+          <a mat-list-item >Custom Library based generation</a>
+          <a mat-list-item >Sidechain Reconstruction</a> 
+          </mat-nav-list>
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel [class.mat-elevation-z0]="true" dense *ngIf="val=='molecule_generation'">
+      <mat-expansion-panel-header>
+        Denovo
+      </mat-expansion-panel-header>
+      <mat-nav-list dense>
+      <a mat-list-item >Scaffold extension</a>
+      <a mat-list-item >Fragment Hopping</a> 
+      <a mat-list-item >Reward Based Generation</a> 
+      </mat-nav-list>
+  </mat-expansion-panel>
+  
+    </mat-expansion-panel>
+  
+    <!--  -->
+        <a mat-list-item *ngIf="val=='lead_optimization'">Global Optimizers</a>
+        <a mat-list-item *ngIf="val=='lead_optimization'">Custom Optimizers</a>
+  <!--  -->
+  
+   <!--  -->
+    <mat-expansion-panel [class.mat-elevation-z0]="true" dense *ngIf="val=='molecule_screening'">
+      <mat-expansion-panel-header>
+        Clustering
+      </mat-expansion-panel-header>
+      <mat-nav-list dense>
+      <a mat-list-item >Butina </a>
+      <a mat-list-item >K-means</a> 
+      </mat-nav-list>
+  </mat-expansion-panel>
+  <a  mat-list-item *ngIf="val=='molecule_screening'">Reward Based Screening</a>
+  <!--  -->
+  
+  <!--  -->
+  <a mat-list-item href="#" *ngIf="val=='toolbox'">Rebolt</a>
+  <a mat-list-item href="#" *ngIf="val=='toolbox'">Molecular Docking</a>
+  <a mat-list-item href="#" *ngIf="val=='toolbox'">Shape Alignment</a>
+  <a mat-list-item href="#" *ngIf="val=='toolbox'">Binding Site Prediction</a>
+  <!--  -->
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!-- <mat-toolbar color="primary">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+  <button style='margin-right:12px;margin-left: 25px;' value="data" (click)="display($event)">Data</button>
+  <button style='margin-right:12px' (click)="display($event)" value="pp">Property Prediction</button>
+  <button style='margin-right:12px' (click)="display($event)" value="molecule_generation">Molecule Generation</button>
+  <button style='margin-right:12px' (click)="display($event)" value="lead_optimization">Lead Optimization</button>
+  <button style='margin-right:12px' (click)="display($event)" value="molecule_screening">Molecule screening</button>
+  <button style='margin-right:12px' (click)="display($event)" value="toolbox">Toolbox</button>
+      </mat-toolbar> -->
+      <!-- Add Content Here -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

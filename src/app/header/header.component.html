@@ -1,0 +1,18 @@
+<div id="main_wrap">
+<app-side-nav [val]="val"></app-side-nav>
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="clickMenu()">
+    <mat-icon>menu</mat-icon></button>
+    <label>Boltchem</label>
+  <button style='margin-right:12px;margin-left: 25px;' value="data" (click)="display($event)">Data</button>
+  <button style='margin-right:12px' (click)="display($event)" value="pp">Property Prediction</button>
+  <button style='margin-right:12px' (click)="display($event)" value="molecule_generation">Molecule Generation</button>
+  <button style='margin-right:12px' (click)="display($event)" value="lead_optimization">Lead Optimization</button>
+  <button style='margin-right:12px' (click)="display($event)" value="molecule_screening">Molecule screening</button>
+  <button style='margin-right:12px' (click)="display($event)" value="toolbox">Toolbox</button>
+      </mat-toolbar> 
+    <mat-toolbar>
+      
+    </mat-toolbar>
+    </div>
+    
